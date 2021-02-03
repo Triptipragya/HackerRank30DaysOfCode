@@ -1,0 +1,31 @@
+import java.io.*;
+import java.util.*;
+
+public class Solution {
+
+    public static void main(String[] args) {
+        /* Enter your code here. Read input from STDIN. Print output to STDOUT. Your class should be named Solution. */
+        Scanner sc=new Scanner(System.in);
+        int actuallyDay = sc.nextInt();
+        int actuallyMonth = sc.nextInt();
+        int actuallyYear = sc.nextInt();
+        
+        int expectedDay = sc.nextInt();
+        int expectedMonth = sc.nextInt();
+        int expectedYear = sc.nextInt();
+        
+        int fine;
+        
+        if(actuallyYear > expectedYear){
+            fine = 10000;
+        }else if(actuallyMonth>expectedMonth && (actuallyYear >= expectedYear)){
+            fine = 500* (actuallyMonth - expectedMonth);
+        }else if(actuallyDay > expectedDay && (actuallyMonth>= expectedMonth)&&(actuallyYear >=expectedYear)){
+            fine = 15 *(actuallyDay - expectedDay);
+        }else{
+            fine = 0;
+        }
+        System.out.println(fine);
+        sc.close();
+    }
+}
